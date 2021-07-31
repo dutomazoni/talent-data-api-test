@@ -19,15 +19,11 @@ app.use((req, res, next) => {
     next();
 });
 
-let conn = 'mongodb://localhost:27017/'
+// let conn = 'mongodb://localhost:27017/'
+let conn = 'mongodb+srv://teste:senhateste@cluster0.thb2w.mongodb.net/challenge_st?retryWrites=true&w=majority'
 mongoose.connect(conn, {
     useNewUrlParser: true,
-    autoIndex: true,
-    useFindAndModify: false,
     useUnifiedTopology: true,
-    keepAlive: true,
-    useCreateIndex: true,
-    dbName: 'challenge_st'
 });
 mongoose.connection.on('error', (error) => {
     console.log(error);
