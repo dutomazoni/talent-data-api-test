@@ -3,7 +3,7 @@ info:
   title: Routes
   termsOfService: http://swagger.io/terms/
   contact:
-    email: eduardo.tomazoni@enline-transmission.com
+    email: dutomazoni@gmail.com
   license:
     name: Apache 2.0
     url: http://www.apache.org/licenses/LICENSE-2.0.html
@@ -13,11 +13,10 @@ servers:
 tags:
   - name: User
     description: User's routes.
-  - name: Product
+  - name: Products
     description: Products' routes.
 
-security:
-  - bearerAuth: []
+
 paths:
   /login:
     post:
@@ -52,6 +51,162 @@ paths:
                       "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImludGVybi5zYWxlc3JlcEBzdGl0LnRhbGVudCIsInJvbGUiOiJpbnRlcm4iLCJ1c2VySWQiOiJ5bHhldkRZSHFlbHozSjBsIiwiaWF0IjoxNjI3NzQzNjQ1fQ.gHLCXNH0dcfl56L7m5NOLI__eEVgUh3lflFxAWtNgjw",
                       "status": 201
                     }
+  /products/{organizationName}:
+    get:
+      tags:
+        - Products
+      security:
+        - bearerAuth: [ ]
+      summary: Search for products by organization and tags.
+      description: Request shape - http://localhost:5001/:organizationName?tags=*tag1*&tags=*tag2*
+      operationId: postLogin
+      parameters:
+        - in: path
+          required: true
+          name: organizationName
+          schema:
+            type: string
+            example: "Movies"
+        - in: query
+          name: tags
+          schema:
+            type: string
+            example: "Small"
+
+      responses:
+        200:
+          description: Returns the products.
+          content:
+            application/json:
+              example:
+                products:
+                  value:
+                    {
+                      "total": 9,
+                      "products": [
+                        {
+                          "tags": [
+                              "Refined",
+                              "Gorgeous",
+                              "Small",
+                              "Small"
+                          ],
+                          "_id": "6102b8ffc985b03da4041de2",
+                          "name": "Gorgeous Plastic Car",
+                          "department": "Movies",
+                          "material": "Wooden",
+                          "price": "970.00"
+                        },
+                        {
+                          "tags": [
+                              "Licensed",
+                              "Tasty",
+                              "Gorgeous",
+                              "Practical",
+                              "Small"
+                          ],
+                          "_id": "6102b8ffc985b03da4041e1f",
+                          "name": "Incredible Granite Hat",
+                          "department": "Movies",
+                          "material": "Steel",
+                          "price": "52.00"
+                        },
+                        {
+                          "tags": [
+                              "Fantastic",
+                              "Handmade",
+                              "Small",
+                              "Ergonomic"
+                          ],
+                          "_id": "6102b8ffc985b03da4041e69",
+                          "name": "Ergonomic Steel Pants",
+                          "department": "Movies",
+                          "material": "Plastic",
+                          "price": "545.00"
+                        },
+                        {
+                          "tags": [
+                              "Small",
+                              "Small",
+                              "Refined",
+                              "Unbranded"
+                          ],
+                          "_id": "6102b8ffc985b03da4041e87",
+                          "name": "Licensed Concrete Chips",
+                          "department": "Movies",
+                          "material": "Frozen",
+                          "price": "98.00"
+                        },
+                        {
+                          "tags": [
+                              "Unbranded",
+                              "Gorgeous",
+                              "Small",
+                              "Incredible"
+                          ],
+                          "_id": "6102b8ffc985b03da4041ef9",
+                          "name": "Handcrafted Plastic Chicken",
+                          "department": "Movies",
+                          "material": "Plastic",
+                          "price": "507.00"
+                        },
+                        {
+                          "tags": [
+                              "Generic",
+                              "Small",
+                              "Intelligent",
+                              "Incredible",
+                              "Tasty"
+                          ],
+                          "_id": "6102b8ffc985b03da4041f5f",
+                          "name": "Gorgeous Wooden Tuna",
+                          "department": "Movies",
+                          "material": "Metal",
+                          "price": "429.00"
+                        },
+                        {
+                          "tags": [
+                              "Intelligent",
+                              "Licensed",
+                              "Tasty",
+                              "Small"
+                          ],
+                          "_id": "6102b8ffc985b03da4042028",
+                          "name": "Ergonomic Plastic Chair",
+                          "department": "Movies",
+                          "material": "Wooden",
+                          "price": "780.00"
+                        },
+                        {
+                          "tags": [
+                              "Handmade",
+                              "Awesome",
+                              "Small",
+                              "Small",
+                              "Tasty"
+                          ],
+                          "_id": "6102b8ffc985b03da40420a7",
+                          "name": "Handmade Plastic Chair",
+                          "department": "Movies",
+                          "material": "Soft",
+                          "price": "252.00"
+                        },
+                        {
+                          "tags": [
+                              "Generic",
+                              "Handcrafted",
+                              "Small"
+                          ],
+                          "_id": "6102b8ffc985b03da40420f7",
+                          "name": "Tasty Metal Shirt",
+                          "department": "Movies",
+                          "material": "Concrete",
+                          "price": "772.00"
+                        }
+                      ]
+                    }
+
+
 
 components:
   securitySchemes:

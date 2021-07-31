@@ -49,8 +49,6 @@ product_routes.product_by_organization = async (req, res) => {
                                         tags.forEach((tag) => {
                                             if(product.tags.includes(tag)){
                                                 filtered_products.push(product)
-                                            }else{
-                                                filtered_products = "no product found"
                                             }
                                         })
                                     }else{
