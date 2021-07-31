@@ -56,8 +56,6 @@ product_routes.product_by_organization = async (req, res) => {
                                             filtered_products.push(product)
                                         }
                                     }
-                                }else{
-                                    filtered_products.push(product)
                                 }
                             }
                         }else {
@@ -74,8 +72,6 @@ product_routes.product_by_organization = async (req, res) => {
                                             filtered_products.push(product)
                                         }
                                     }
-                                }else{
-                                    filtered_products.push(product)
                                 }
                             }
                         }

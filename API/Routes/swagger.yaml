@@ -58,7 +58,7 @@ paths:
       security:
         - bearerAuth: [ ]
       summary: Search for products by organization and tags.
-      description: Request shape - http://localhost:5001/:organizationName?tags=*tag1*&tags=*tag2*
+      description: Request shape - http://localhost:5001/*organizationName*?tags=*tag1*&tags=*tag2*
       operationId: postLogin
       parameters:
         - in: path
