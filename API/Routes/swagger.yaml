@@ -1,6 +1,6 @@
 openapi: '3.0.1'
 info:
-  title: Enline DLR-API Routes
+  title: Routes
   termsOfService: http://swagger.io/terms/
   contact:
     email: eduardo.tomazoni@enline-transmission.com

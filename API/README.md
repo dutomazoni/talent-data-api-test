@@ -10,4 +10,4 @@
 
     $ yarn start
 
-[Rotas](Routes/swagger.yaml)
+[Rotas](https://petstore.swagger.io/?url=https://raw.githubusercontent.com/dutomazoni/talent-data-api-test/master/API/Routes/swagger.yaml)
