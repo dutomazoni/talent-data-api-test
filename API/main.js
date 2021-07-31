@@ -19,8 +19,8 @@ app.use((req, res, next) => {
     next();
 });
 
-// let conn = 'mongodb://localhost:27017/'
-let conn = 'mongodb+srv://teste:senhateste@cluster0.thb2w.mongodb.net/challenge_st?retryWrites=true&w=majority'
+let conn = 'mongodb://localhost:27017/'
+
 mongoose.connect(conn, {
     useNewUrlParser: true,
     useUnifiedTopology: true,
