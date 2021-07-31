@@ -18,7 +18,7 @@ user_routes.login = async (req, res) => {
                     },
                     process.env.JWT ? process.env.JWT : 'testSecret',
                 );
-                res.status(200).json({token: token, status: 200})
+                res.status(201).json({token: token, status: 201})
             }else{
                 res.status(401).json({message: 'Wrong credentials.', status: 401})
             }

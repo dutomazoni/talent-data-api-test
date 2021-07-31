@@ -1,0 +1,61 @@
+openapi: '3.0.1'
+info:
+  title: Enline DLR-API Routes
+  termsOfService: http://swagger.io/terms/
+  contact:
+    email: eduardo.tomazoni@enline-transmission.com
+  license:
+    name: Apache 2.0
+    url: http://www.apache.org/licenses/LICENSE-2.0.html
+  version: '1.0'
+servers:
+  - url: http://localhost:5001
+tags:
+  - name: User
+    description: User's routes.
+  - name: Product
+    description: Products' routes.
+
+security:
+  - bearerAuth: []
+paths:
+  /login:
+    post:
+      tags:
+        - User
+      summary: Send a login request.
+      description: Request shape - http://localhost:5001/login
+      operationId: postLogin
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                email:
+                  type: string
+                password:
+                  type: string
+              example:
+                email: "intern.salesrep@stit.talent"
+                password: "Or63inluKBLPs006vw9diRmzdCjYLB9H"
+        required: true
+      responses:
+        201:
+          description: Returns the user's token.
+          content:
+            application/json:
+              examples:
+                login:
+                  value:
+                    {
+                      "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImludGVybi5zYWxlc3JlcEBzdGl0LnRhbGVudCIsInJvbGUiOiJpbnRlcm4iLCJ1c2VySWQiOiJ5bHhldkRZSHFlbHozSjBsIiwiaWF0IjoxNjI3NzQzNjQ1fQ.gHLCXNH0dcfl56L7m5NOLI__eEVgUh3lflFxAWtNgjw",
+                      "status": 201
+                    }
+
+components:
+  securitySchemes:
+    bearerAuth:
+      type: http
+      scheme: bearer
+      bearerFormat: JWT  # optional, for documentation purposes only
