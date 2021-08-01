@@ -16,7 +16,7 @@ user_routes.login = async (req, res) => {
                         role: role,
                         userId: userFound.userId,
                     },
-                    process.env.JWT ? process.env.JWT : 'testSecret',
+                    'testSecret',
                 );
                 res.status(201).json({token: token, status: 201})
             }else{

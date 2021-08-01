@@ -1,5 +1,5 @@
 import express_jwt from 'express-jwt';
-let secret = process.env.JWT || 'testSecret';
+let secret = 'testSecret';
 
 function authorize(roles = []) {
     if (typeof roles === 'string') {

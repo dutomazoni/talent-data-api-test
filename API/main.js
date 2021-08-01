@@ -2,15 +2,11 @@ import express from 'express';
 import mongoose from 'mongoose';
 import routes from './Routes/index';
 import cors from 'cors';
-import dotenv from 'dotenv';
-import path from 'path';
 import bodyParser from 'body-parser';
 
 let app = express();
 app.use(cors());
 app.use(bodyParser.json());
-
-dotenv.config({ path: path.join(__dirname, '.env') });
 
 app.use((req, res, next) => {
     res.setHeader('Access-Control-Allow-Origin', '*');
@@ -20,7 +16,7 @@ app.use((req, res, next) => {
 });
 
 // let conn = 'mongodb://localhost:27017/'
-let conn = process.env.URL || "mongodb+srv://teste:senhateste@cluster0.thb2w.mongodb.net/challenge_st?retryWrites=true&w=majority"
+let conn = "mongodb+srv://teste:senhateste@cluster0.thb2w.mongodb.net/challenge_st?retryWrites=true&w=majority"
 mongoose.connect(conn, {
     useNewUrlParser: true,
     useUnifiedTopology: true,
