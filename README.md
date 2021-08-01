@@ -16,3 +16,6 @@ Antes de utilizar a rota de produtos, primeiro temos que gerar um token de autor
 Informações mais detalhadas das [Rotas](https://petstore.swagger.io/?url=https://raw.githubusercontent.com/dutomazoni/talent-data-api-test/master/API/Routes/swagger.yaml) no swagger.
 
 
+## Testes
+
+    $ yarn test
